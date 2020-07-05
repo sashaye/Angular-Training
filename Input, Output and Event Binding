@@ -23,9 +23,15 @@ HostBinding - Declares a host property binding. Angular automatically checks hos
 If a binding changes, it will update the host element of the directive.
 @HostBinding - will bind the property to the host element, If a binding changes, HostBinding will update the host element.
 
+-------------------------------------------------
+Code Snippet examples 
+--------------------------------------------------
+@HostBinding(‘style.border’) border: string;
+
 @HostListener('click', ['$event.target'])
   onClick(btn) {
     console.log('button', btn, 'number of clicks:', this.numberOfClicks++);
+    this.border = ‘5px solid green’;
  }
 
 hello.component.ts
