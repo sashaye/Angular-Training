@@ -1,0 +1,53 @@
+Template 
+
+A template is an HTML snippet that tells Angular how to render the component in angular application
+
+ng-template
+<ng-template *ng-If="isAvailable">
+  <div class="inProgress"> Welcome to Angular Course! </div>
+</ng-template> 
+
+<div>
+   <span *ngIf = "isavailable;then condition1 else condition2">
+      Condition is valid.
+   </span>
+   <ng-template #condition1>Condition is valid from template</ng-template>
+   <ng-template #condition2>Condition is invalid from template</ng-template>
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+Container 
+
+Containers are used when templates are not advised to be used, in cases such as: 
+- having multiple ng-template
+
+ng-container are used as a container to templates that can be reused at multiple places.
+
+Important: 
+- ng-container is not placed in the DOM which allows styles or
+layout not to have any interferance with the grouping element.
+
+<div *ngFor="let fruit of fruits">
+  <div *ngIf= fruit.serialId>{{fruit.type}}</div>
+</div>
+
+<ng-container *ngFor="let fruit of fruits">
+  <div *ngIf= fruit.serialId>{{fruit.type}}</div>
+</ng-container>
+----------------------------------------------------------------------------------------------------
+
+Content Projection 
+
+Content Projection is creating a configurable component based on the needs of the user. 
+Its useful to insert shadow DOM in your components
+
+ng-content allow published components to become configurable 
+
+<div class="footer">
+  <ng-content></ng-content>
+</div>
+
+<project-content>
+  <div> This is custom footer ... </div>
+</project-content>
