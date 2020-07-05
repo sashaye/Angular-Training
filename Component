@@ -1,0 +1,54 @@
+Components are classes that interacts with the html file, which is displayed in the browser
+
+Command: ng g component component_name 
+
+File Structure: 
+
+- app.component.css
+- app.component.html
+- app.component.spec.ts
+- app.component.ts
+
+
+Sample Component 
+
+import { Component, OnInit } from '@angular/core'; // here angular/core is imported.
+
+@Component({ 
+   selector: 'new-component',
+   templateUrl: './new-component.component.html', 
+   styleUrls: ['./new-component.component.css'] 
+}) 
+export class NewCmpComponent implements OnInit {   
+   constructor() { } 
+   ngOnInit() { } 
+}
+
+
+------------------------------------------------------------------------
+
+@Component - This is a declarator which always starts with an '@' sign
+selector - to be used inside the .html file 
+templateUrl - reference the html file  
+styleUrls - reference the style sheet
+
+ngOnInit is called by default when the class is executed
+
+
+
+import { Component } from '@angular/core';
+@Component({
+   selector: 'app-root', 
+   templateUrl: './app.component.html', 
+   styleUrls: ['./app.component.css'] 
+}) 
+export class AppComponent { 
+   title = 'New to Angular Intro'; 
+}
+
+<!--The content below is only a placeholder and can be replaced.--> 
+<div style = "text-align:center"> 
+   <h1> Welcome to {{ title }}! </h1> 
+</div>
+
+Binding is used to get the value of title by referencing the double curly bracket in the html
