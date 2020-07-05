@@ -1,0 +1,51 @@
+Event binding occurs when a user interacts with the website by a button click or a keyboard movement. 
+
+Decorators which maybe used:
+- @Input
+- @Output
+- @HostListener
+- @HostBinding 
+
+Input is used to receive data in whereas Output is used to send data out.
+Output sends data out by exposing event producers, usually EventEmitter objects.
+
+@Input
+The input property is bound to a DOM property in the template
+
+@Output 
+Decorator that marks a class field as an output property and supplies configuration metadata. 
+The DOM property bound to the output property is automatically updated during change detection.
+
+HostListener - Declares a host listener. Angular will invoke the decorated method when the host element emits the specified event.
+@HostListener - will listen to the event emitted by the host element that's declared with @HostListener.
+
+HostBinding - Declares a host property binding. Angular automatically checks host property bindings during change detection. 
+If a binding changes, it will update the host element of the directive.
+@HostBinding - will bind the property to the host element, If a binding changes, HostBinding will update the host element.
+
+@HostListener('click', ['$event.target'])
+  onClick(btn) {
+    console.log('button', btn, 'number of clicks:', this.numberOfClicks++);
+ }
+
+hello.component.ts
+@Component({
+  selector: 'hello',
+  template: `
+    <h3 (click)="onClick.emit('Neo')">
+       ...
+    </h3>
+  `
+})
+export class HelloComponent  {
+  @Input() myFriend: string
+  @Output() onClick = new EventEmitter()
+}
+
+ 
+ References: 
+ https://stackoverflow.com/questions/37965647/hostbinding-and-hostlistener-what-do-they-do-and-what-are-they-for
+ https://medium.com/@foolishneo/understanding-input-output-and-eventemitter-in-angular-c1aeb9fff594
+ https://angular.io/api/core/Input
+ https://angular.io/api/core/Output
+ 
