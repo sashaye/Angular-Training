@@ -1,0 +1,33 @@
+Angular is an open source Javascript framework used to create web apps
+
+Angular was created by google and is supported by a large community 
+
+To Install Angular 
+npm install -g @angular/cli
+ng new name-app // name of the project
+cd name-app
+ng serve //Builds and serves your app
+
+Update Angular
+ng update @angular/cli @angular/core
+
+There are built in features such as:
+- routing
+- style sheets
+
+Prerequiste to install angular:
+- Nodejs( An open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser.)
+- Npm (a package manager for the JavaScript programming language)
+- Angular CLI
+- IDE
+
+Folder Structure
+e2e - end to end testing is used for integration testing and helps ensure the application works fine.
+node_modules - show available packages within the project
+src - where the code is :) 
+angular.json - project name and version of the cli
+package.json - tells which files to be install in node_modules
+tsconfig.json - the compiler options required during compilation
+tslint.json - the config file with rules to be considered while compiling
+
+
