@@ -1,10 +1,15 @@
 Interpolation is used to bind data from the component with the html with the use of the curly bracket {{ bindingVariable }}
 
 - Displaying title in html as {{title}}
+<h1> Welcome to {{title}}. </h1> 
 
-- To loop through an array, we would use ngFor 
+- To loop through an array, we would use *ngFor 
+*ngFor = “let i of months” and display i wihtin the curly brackets {{i}}
+ <option *ngFor = "let i of months">{{i}}</option> 
 
-
+- To display data base on a condition we would use *ngIf
+If is used with the else condition and the variable used is condition1. 
+The same is assigned as an id to the ng-template, and when the available variable is set to false the text Condition is invalid is displayed.
 
 import { Component } from '@angular/core';
 
@@ -18,6 +23,8 @@ app.component.ts
 export class AppComponent {
    title = 'New Angular Project'; 
    
+   isavailable = false; //variable is set to true
+   
    // declared array of months. 
    months = ["January", "February", "March", "April", "May", "June", "July", 
       "August", "September", "October", "November", "December"];
@@ -28,4 +35,14 @@ app.component.html
 <!--The content below is only a placeholder and can be replaced.--> 
 <div style = "text-align:center"> 
    <h1> Welcome to {{title}}. </h1> 
+</div>
+<div> Months : 
+   <select> 
+      <option *ngFor = "let i of months">{{i}}</option> 
+   </select> 
+</div>
+<div> 
+   <span *ngIf = "isavailable">Condition is valid.</span>  
+   //over here based on if condition the text condition is valid is displayed. 
+   //If the value of isavailable is set to false it will not display the text. 
 </div>
