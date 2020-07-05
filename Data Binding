@@ -1,0 +1,31 @@
+Interpolation is used to bind data from the component with the html with the use of the curly bracket {{ bindingVariable }}
+
+- Displaying title in html as {{title}}
+
+- To loop through an array, we would use ngFor 
+
+
+
+import { Component } from '@angular/core';
+
+app.component.ts
+
+@Component({ 
+   selector: 'app-root', 
+   templateUrl: './app.component.html', 
+   styleUrls: ['./app.component.css'] 
+}) 
+export class AppComponent {
+   title = 'New Angular Project'; 
+   
+   // declared array of months. 
+   months = ["January", "February", "March", "April", "May", "June", "July", 
+      "August", "September", "October", "November", "December"];
+}
+
+app.component.html
+
+<!--The content below is only a placeholder and can be replaced.--> 
+<div style = "text-align:center"> 
+   <h1> Welcome to {{title}}. </h1> 
+</div>
