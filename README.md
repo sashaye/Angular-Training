@@ -1,6 +1,8 @@
 # Angular-Training
 
-This project is to give a birdseye View of angular. Which covers the following topics:
-- How to set up angular
-- Basic commands 
+I'm currently learning angular and documenting is a great way to review my notes. 
+
+- How to set up angular 
+- Basic commands
+- Birds eye view of Angular
 - Interactions from module, view, compiler. 
