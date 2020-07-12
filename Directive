@@ -1,4 +1,4 @@
-Directive is an Attribute directive changes the appearance or behavior of a DOM element.
+Directive is an Attribute which changes the appearance or behavior of a DOM element.
 
 There are three kinds of directives in Angular:
 
