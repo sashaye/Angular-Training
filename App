@@ -21,4 +21,4 @@ export class AppModule { }
 Declarations : Reference to the stored components 
 Imports: Reference to the modules 
 Providers: Reference to the services
-Bootstrap: Refenrece to the default component
+Bootstrap: Reference to the default component
