@@ -1,0 +1,33 @@
+Pipes are used in Angular to format data. 
+
+pipesDescription:string = 'Learning about Pipes';
+
+There are a few built in pipes such as:
+- Lowercasepipe {{pipesDescription | lowercase}}
+- Uppercasepipe {{pipesDescription | uppercase}}
+- Datepipe {{todaydate | date:'d/M/y'}}
+- Currencypipe {{29.43 | currency:"CAD"}}
+- Jsonpipe {{ jsonval | json }}
+- Percentpipe {{00.43 | percent}}
+- Decimalpipe {{ 22.3456 | number: '2.2-2' }}
+- Slicepipe {{months | slice:3:8}}
+
+Angular allows us to create custom pipes by using the @Pipe directive, which will be called in the html file.
+From my previous notes, a directive is a function that executes whenever the Angular compiler finds it in the DOM
+By adding the @Pipe, the angular compile will find the directive in the DOM whenever the fuction excutes.
+
+import {Pipe, PipeTransform} from '@angular/core'; 
+@Pipe ({ 
+   name : 'sqrt'
+}) 
+export class SqrtPipe implements PipeTransform {
+   transform(val : number) : number {
+      return Math.sqrt(val);
+   }
+}
+
+<h1>Custom Pipe</h1> 
+<b>Square root of 25 is: {{25 | sqrt}}</b> 
+<br/> 
+<b>Square root of 729 is: {{729 | sqrt}}</b>
+
