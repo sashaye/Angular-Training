@@ -1,0 +1,63 @@
+Angular services are singleton objects that get instantiated only once during the lifetime of an application.
+
+It is a great object to be used if there is a feature which is needed to be used everywhere within the project.
+
+To create a service, we use the command: ng g service highLightService
+
+This will create two files: 
+src/app/keyListenerService.service.spec.ts
+src/app/keyListenerService.service.ts
+
+import { Injectable } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
+@Injectable({
+   providedIn: 'root' 
+}) 
+export class KeyListenerService {
+   constructor() { }
+   
+   start(){
+      //create observable that emits click events
+      const source = fromEvent(document, 'click');
+      //map to string with given event timestamp
+      const example = source.pipe(map(event => `Event time: ${event.timeStamp}`));
+      //output (example): 'Event time: 7276.390000000001'
+      const subscribe = example.subscribe(val => console.log(val));
+   }
+}
+
+The injectable module is imported from the @angular/core and contains the @Injectable method.
+ 
+import { Injectable } from '@angular/core';
+@Injectable({
+   providedIn: 'root' 
+}) 
+export class StartService {
+   constructor(
+      private keyListenerService: KeyListenerService
+   ) { }
+   
+   startUp(){
+      keyListenerService.start();
+   }
+}
+
+
+import { NgModule } from '@angular/core';
+import { AppRoutingModule} from './app-routing.module'; 
+import { AppComponent } from './app.component'; 
+import { KeyListenerService } from './keyListenerService.service';
+
+@NgModule({ 
+   declarations: [
+      AppComponent
+   ], 
+   imports: [ 
+      AppRoutingModule
+   ], 
+   providers: [StartService
+   ], 
+   bootstrap: [AppComponent] 
+})
+export class AppModule { }
